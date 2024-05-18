@@ -1,6 +1,16 @@
-<h1>Seja bem vindo!</h1>
-<ul>
-  <li> <%= link_to "Cadastro de Moedas", coins_path %>
-</ul>
+<%# app/views/welcome/index.html.erb %>
+<div class="container mt-5">
+  <h1 class="mb-4">Seja bem-vindo!</h1>
+  
+  <ul class="list-group">
+    <li class="list-group-item"><%= link_to "Cadastro de Moedas", coins_path %></li>
+  </ul>
 
-<p> Data: <%= data_br(Date.today) %> </p>
+<div class="row text-center mt-3">
+  <p>Data: <%= data_br(Date.today) %></p>
+
+  <p>Versão: <%= Rails.application.config.version %></p>
+
+  <p>Ambiente: <%= Rails.env %></p>
+  </div>
+</div>
