@@ -10,7 +10,7 @@ module CryptoWallet
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
-    
+
     config.version = '1.0.0'
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
