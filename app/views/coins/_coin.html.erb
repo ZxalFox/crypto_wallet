@@ -1,17 +1,18 @@
-<div id="<%= dom_id coin %>">
-  <p>
-    <strong>Description:</strong>
-    <%= coin.description %>
-  </p>
-
-  <p>
-    <strong>Acronym:</strong>
-    <%= coin.acronym %>
-  </p>
-
-  <p>
-    <strong>Url image:</strong>
-    <%= coin.url_image %>
-  </p>
-
+<%# app/views/coins/show.html.erb %>
+<div id="<%= dom_id coin %>" class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Detalhes da Moeda</h5>
+    <p class="card-text">
+      <strong>Descrição:</strong>
+      <%= coin.description %>
+    </p>
+    <p class="card-text">
+      <strong>Sigla:</strong>
+      <%= coin.acronym %>
+    </p>
+    <p class="card-text">
+      <strong>Imagem:</strong>
+      <%= image_tag asset_path(coin.url_image), size: "50x50", class: "img-thumbnail" %>
+    </p>
+  </div>
 </div>
