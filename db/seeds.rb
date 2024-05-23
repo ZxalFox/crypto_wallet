@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "Caregando moedas no banco..."
+
+Coin.create!(description: 'Bitcoin',  acronym: "BTC",
+url_image: "https://i.ibb.co/QQdFMC0/bitcoin-ayron.png")
+
+Coin.create!(description: "Ethereum", acronym: "ETH",
+url_image: "https://i.ibb.co/Z1y7mz4/ethereum-ayron.png")
+
+Coin.create!(description: "Tether", acronym: "USDT",
+url_image: "https://i.ibb.co/Wy3nZ2T/tether-ayron.png")
+
+puts "Moedas carregadas com sucesso!"
