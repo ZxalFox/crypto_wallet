@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def data_br(data_us)
-    data_us.strftime("%d/%m/%Y")
+    data_us.strftime('%d/%m/%Y')
   end
 end

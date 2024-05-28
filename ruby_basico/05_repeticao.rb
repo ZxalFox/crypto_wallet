@@ -1,19 +1,21 @@
-puts "-------------------"
-puts "Estruturas de repetição"
-puts "-------------------"
+# frozen_string_literal: true
 
-#each
+puts '-------------------'
+puts 'Estruturas de repetição'
+puts '-------------------'
+
+# each
 (0..5).each do |i|
-  puts "Contando... " + i.to_s
+  puts "Contando... #{i}"
 end
 
-puts "-------------------"
+puts '-------------------'
 
-#while
+# while
 i = 0
 num = 5
 
-while i < num do
-  puts "Contando... " + i.to_s
+while i < num
+  puts "Contando... #{i}"
   i += 1
 end

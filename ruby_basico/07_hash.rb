@@ -1,18 +1,20 @@
-puts "-------------------"
-puts "Hash"
-puts "-------------------"
+# frozen_string_literal: true
+
+puts '-------------------'
+puts 'Hash'
+puts '-------------------'
 
 # Hashes são estruturas de dados que guardam pares de chave e valor
-hash = {nome: "Ayron", idade: 22, cidade: "Buritizeiro"} # Sintaxe simplificada (simbolo)
+hash = { nome: 'Ayron', idade: 22, cidade: 'Buritizeiro' } # Sintaxe simplificada (simbolo)
 puts hash[:nome] # Acessando o valor da chave nome
 
-puts "-------------------"
+puts '-------------------'
 
-hash_v2 = {:nome => "Ayron", :idade => 22, :cidade => "Buritizeiro"} # Sintaxe padrão
+hash_v2 = { nome: 'Ayron', idade: 22, cidade: 'Buritizeiro' } # Sintaxe padrão
 puts hash_v2[:cidade] # Acessando o valor da chave cidade
 
-puts "-------------------"
+puts '-------------------'
 
 # Adicionando um novo par chave/valor
-hash[:profissao] = "Desenvolvedor"
+hash[:profissao] = 'Desenvolvedor'
 puts hash

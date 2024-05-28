@@ -1,22 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# frozen_string_literal: true
 
-puts "Caregando moedas no banco..."
-
-Coin.create!(description: 'Bitcoin',  acronym: "BTC",
-url_image: "https://i.ibb.co/QQdFMC0/bitcoin-ayron.png")
-
-Coin.create!(description: "Ethereum", acronym: "ETH",
-url_image: "https://i.ibb.co/Z1y7mz4/ethereum-ayron.png")
-
-Coin.create!(description: "Tether", acronym: "USDT",
-url_image: "https://i.ibb.co/Wy3nZ2T/tether-ayron.png")
-
-puts "Moedas carregadas com sucesso!"
+# Utilize o rails dev:setup (lib/tasks/dev.rake) para popular o banco de dados com as moedas.
