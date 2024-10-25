@@ -1,8 +1,105 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+# .rubocop.yml
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+# Configurações gerais para o RuboCop
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0 # Altere para a versão do Ruby que você está usando
+  Exclude:
+    - "bin/**/*"
+    - "db/**/*"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+
+# Layout / Formatação de Código
+Layout/LineLength:
+  Max: 100 # Máximo de caracteres por linha
+
+Layout/TrailingWhitespace:
+  Enabled: true # Não permite espaços em branco no final das linhas
+
+Layout/IndentationWidth:
+  Width: 2 # Indentação com 2 espaços
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true # Requer uma linha vazia ao redor do corpo da classe
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space # Adiciona espaços dentro de `{ }` para blocos
+
+Layout/SpaceAroundOperators:
+  Enabled: true # Requer espaços ao redor de operadores (`+`, `-`, etc.)
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true # Requer uma linha vazia após comentários de codificação (`# frozen_string_literal: true`)
+
+# Naming / Nomeação
+Naming/ClassAndModuleCamelCase:
+  Enabled: true # Usa CamelCase para classes e módulos
+
+Naming/MethodName:
+  EnforcedStyle: snake_case # Usa snake_case para métodos
+
+Naming/VariableName:
+  EnforcedStyle: snake_case # Usa snake_case para variáveis locais
+
+# Style / Estilo de Código
+Style/FrozenStringLiteralComment:
+  Enabled: true # Exige a linha `# frozen_string_literal: true` no topo de cada arquivo
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes # Preferência por aspas duplas
+
+Style/ClassAndModuleChildren:
+  Enabled: true # Usa `Module::Class` em vez de `module Module; class Class`
+
+Style/GuardClause:
+  Enabled: true # Sugere uso de guard clauses em vez de if/else
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19 # Prefere a sintaxe `{ chave: valor }`
+
+Style/RegexpLiteral:
+  Enabled: true # Usa `/` para regex, em vez de `%r{}`
+
+Style/CommentAnnotation:
+  Keywords:
+    - FIXME
+    - TODO
+    - OPTIMIZE
+    - HACK
+    - REVIEW
+
+# Metrics / Métricas de Código
+Metrics/BlockLength:
+  Max: 25 # Máximo de linhas em blocos
+
+Metrics/MethodLength:
+  Max: 15 # Máximo de linhas por método
+
+Metrics/ClassLength:
+  Max: 100 # Máximo de linhas por classe
+
+Metrics/ParameterLists:
+  Max: 5 # Máximo de 5 parâmetros por método
+
+Metrics/ModuleLength:
+  Max: 200 # Máximo de linhas por módulo
+
+# Lint / Verificações de Possíveis Erros
+Lint/UselessAssignment:
+  Enabled: true # Identifica variáveis atribuídas, mas nunca usadas
+
+Lint/RedundantStringCoercion:
+  Enabled: true # Remove conversões redundantes de string (`.to_s`)
+
+Lint/UnusedMethodArgument:
+  Enabled: true # Identifica argumentos de métodos que não são usados
+
+Lint/EmptyBlock:
+  Enabled: true # Não permite blocos vazios
+
+Lint/AmbiguousOperator:
+  Enabled: true # Exige que operadores ambíguos sejam cercados por parênteses
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true # Não permite variáveis que sombreiam outras variáveis locais
