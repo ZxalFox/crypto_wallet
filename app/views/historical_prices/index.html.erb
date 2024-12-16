@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Historical prices" %>
+
+<h1>Historical prices</h1>
+
+<div id="historical_prices">
+  <% @historical_prices.each do |historical_price| %>
+    <%= render historical_price %>
+    <p>
+      <%= link_to "Show this historical price", historical_price %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New historical price", new_historical_price_path %>

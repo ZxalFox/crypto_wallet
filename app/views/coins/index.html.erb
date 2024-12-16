@@ -5,12 +5,51 @@
 <h1>Coins</h1>
 
 <div id="coins">
-  <% @coins.each do |coin| %>
-    <%= render coin %>
-    <p>
-      <%= link_to "Show this coin", coin %>
-    </p>
-  <% end %>
+    <% @coins.each do |coin| %>
+    <div class="coin-container">
+        <%= render coin %>
+
+        <%
+=begin%>
+        <h2>Historical Prices</h2>
+        <% if coin.historical_prices.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% coin.historical_prices.each do |price| %>
+                <tr>
+                    <td> <%= price.recorded_at&.strftime("%Y-%m-%d") || "N/A" %></td>
+                    <td><%= number_to_currency(price.price, unit: "$") %></td>
+                    <td>
+                        <%= link_to "Edit", edit_historical_price_path(price), class: "btn btn-sm btn-primary" %>
+                        <%= link_to "Delete", historical_price_path(price), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <% else %>
+        <p>No historical prices available for this coin.</p>
+        <% end %>
+        <%
+=end%>
+
+        <p>
+            <%= link_to "Add Historical Price", new_historical_price_path(coin_id: coin.id), class: "btn btn-sm btn-success" %>
+        </p>
+
+        <p>
+            <%= link_to "Show this coin", coin %>
+        </p>
+    </div>
+    <hr>
+    <% end %>
 </div>
 
-<%= link_to "New coin", new_coin_path %>
+<%= link_to "New coin", new_coin_path, class: "btn btn-primary" %>

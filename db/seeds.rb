@@ -1,13 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
+# Existing coin data
 spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas...", format: :dots)
 spinner.auto_spin
 
@@ -29,9 +20,24 @@ coins = [
   }
 ]
 
-coins.each do |coin|
+coin_records = coins.map do |coin|
   Coin.find_or_create_by!(coin)
 end
 
 spinner.success("(Moedas cadastradas com sucesso!)")
 
+# Adding historical prices for each coin
+price_spinner = TTY::Spinner.new("[:spinner] Cadastrando preços históricos...", format: :dots)
+price_spinner.auto_spin
+
+coin_records.each do |coin|
+  10.times do |i|
+    HistoricalPrice.create!(
+      coin: coin,
+      price: (1000 + rand * 50000).round(2), # Random price between 1000 and 51000
+      recorded_at: Time.zone.now - i.days
+    )
+  end
+end
+
+price_spinner.success("(Preços históricos cadastrados com sucesso!)")

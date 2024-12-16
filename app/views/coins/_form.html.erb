@@ -1,32 +1,73 @@
 <%= form_with(model: coin) do |form| %>
-  <% if coin.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+<% if coin.errors.any? %>
+<div style="color: red">
+    <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
 
-      <ul>
+    <ul>
         <% coin.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div>
+<div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
-  </div>
+</div>
 
-  <div>
+<div>
     <%= form.label :acronym, style: "display: block" %>
     <%= form.text_field :acronym %>
-  </div>
+</div>
 
-  <div>
+<div>
     <%= form.label :url_image, style: "display: block" %>
     <%= form.text_field :url_image %>
-  </div>
+</div>
 
-  <div>
+<fieldset>
+    <legend>Historical Prices</legend>
+    <%= form.fields_for :historical_prices do |hp_form| %>
+    <div>
+        <%= hp_form.label :date, "Date", style: "display: block" %>
+        <%= hp_form.date_field :date %>
+    </div>
+
+    <div>
+        <%= hp_form.label :price, "Price", style: "display: block" %>
+        <%= hp_form.number_field :price, step: :any %>
+    </div>
+
+    <div>
+        <%= link_to "Remove", "#", class: "remove-historical-price" %>
+    </div>
+
+    <hr>
+    <% end %>
+    <%= link_to "Add Historical Price", "#", id: "add-historical-price", data: { fields: form.fields_for(:historical_prices) { |f| render('historical_price_fields', f: f) }.gsub("\n", "") } %>
+</fieldset>
+
+<div>
     <%= form.submit %>
-  </div>
+</div>
 <% end %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("#add-historical-price").addEventListener("click", function(e) {
+            e.preventDefault();
+            const container = this.closest("fieldset");
+            const newFields = this.dataset.fields.replace(/new_historical_prices/g, new Date().getTime());
+            container.insertAdjacentHTML("beforeend", newFields);
+        });
+
+        document.addEventListener("click", function(e) {
+            if (e.target.classList.contains("remove-historical-price")) {
+                e.preventDefault();
+                const field = e.target.closest(".nested-fields");
+                field.remove();
+            }
+        });
+    });
+</script>

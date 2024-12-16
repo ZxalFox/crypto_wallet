@@ -1,0 +1,31 @@
+ <div id="<%= dom_id coin %>">
+     <div>
+         <%begin%>
+         <% if coin.historical_prices.any? %>
+         <h4>Historical Prices:</h4>
+         <table>
+             <thead>
+                 <tr>
+                     <th>Date</th>
+                     <th>Price</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <% coin.historical_prices.each do |price| %>
+                 <tr>
+                     <td>
+
+                         <%= price.recorded_at&.strftime("%Y-%m-%d") || "N/A" %>
+
+                     </td>
+                     <td><%= number_to_currency(price.price, unit: "$") %></td>
+                 </tr>
+                 <% end %>
+             </tbody>
+         </table>
+         <% else %>
+         <p>No historical prices available.</p>
+         <% end %>
+         <%end%>
+     </div>
+ </div>

@@ -1,11 +1,56 @@
 <% content_for :title, "New coin" %>
 
-<h1>New coin</h1>
+<h1>New Coin</h1>
 
 <%= render "form", coin: @coin %>
+
+<h2>Add Historical Prices</h2>
+<div id="historical-prices">
+    <%= form_with(model: @coin, url: coins_path, method: :post) do |f| %>
+    <div id="historical-prices-fields">
+        <%= f.fields_for :historical_prices do |price_form| %>
+        <div>
+            <%= price_form.label :date, "Date", style: "display: block;" %>
+            <%= price_form.date_field :date %>
+        </div>
+        <div>
+            <%= price_form.label :price, "Price", style: "display: block;" %>
+            <%= price_form.text_field :price %>
+        </div>
+        <br>
+        <% end %>
+    </div>
+    <button type="button" id="add-price" class="btn btn-secondary">Add More Prices</button>
+    <br><br>
+    <%= f.submit "Save Coin and Prices", class: "btn btn-primary" %>
+    <% end %>
+</div>
 
 <br>
 
 <div>
-  <%= link_to "Back to coins", coins_path %>
+    <%= link_to "Back to coins", coins_path, class: "btn btn-outline-secondary" %>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const addPriceButton = document.getElementById("add-price");
+        const pricesContainer = document.getElementById("historical-prices-fields");
+
+        addPriceButton.addEventListener("click", function() {
+            const newFieldSet = document.createElement("div");
+            newFieldSet.innerHTML = `
+        <div>
+          <label style="display: block;">Date</label>
+          <input type="date" name="coin[historical_prices_attributes][][date]" />
+        </div>
+        <div>
+          <label style="display: block;">Price</label>
+          <input type="text" name="coin[historical_prices_attributes][][price]" />
+        </div>
+        <br>
+      `;
+            pricesContainer.appendChild(newFieldSet);
+        });
+    });
+</script>

@@ -1,12 +1,7 @@
-<% content_for :title, "Editing coin" %>
+<h1><%= t('coins.edit_title', default: 'Edit Coin') %></h1>
 
-<h1>Editing coin</h1>
+<%= render 'form', coin: @coin %>
 
-<%= render "form", coin: @coin %>
-
-<br>
-
-<div>
-  <%= link_to "Show this coin", @coin %> |
-  <%= link_to "Back to coins", coins_path %>
+<div class="actions mt-4">
+    <%= link_to t('global.actions.back', default: 'Back'), coins_path, class: "btn btn-secondary" %>
 </div>

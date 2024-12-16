@@ -1,0 +1,12 @@
+<% content_for :title, "Editing historical price" %>
+
+<h1>Editing historical price</h1>
+
+<%= render "form", historical_price: @historical_price %>
+
+<br>
+
+<div>
+  <%= link_to "Show this historical price", @historical_price %> |
+  <%= link_to "Back to historical prices", historical_prices_path %>
+</div>

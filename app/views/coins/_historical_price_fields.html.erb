@@ -1,0 +1,9 @@
+<div class="nested-fields">
+    <%= f.label :date, "Date", style: "display: block" %>
+    <%= f.date_field :date %>
+
+    <%= f.label :price, "Price", style: "display: block" %>
+    <%= f.number_field :price, step: :any %>
+
+    <%= link_to "Remove", "#", class: "remove-historical-price" %>
+</div>

@@ -68,6 +68,11 @@ class CoinsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def coin_params
-    params.expect(coin: %i[description acronym url_image])
+    params.require(:coin).permit(
+      :description,
+      :acronym,
+      :url_image,
+      historical_prices_attributes: [:id, :date, :price, :_destroy]
+    )
   end
 end
