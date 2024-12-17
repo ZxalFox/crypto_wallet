@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+<div class="alert alert-success" role="alert">
+    <%= notice %>
+</div>
+<% end %>
 
-<%= render @coin %>
-<%= render "historical_price_table", coin: @coin %>
+<div class="mb-4">
+    <%= render @coin %>
+</div>
 
-<div>
-    <%= link_to "Edit this coin", edit_coin_path(@coin), class: "btn btn-primary" %> |
-    <%= link_to "Back to coins", coins_path, class: "btn btn-secondary" %>
-    <%= button_to "Destroy this coin", @coin, method: :delete, data: { confirm: "Are you sure you want to delete this coin?" }, class: "btn btn-danger" %>
+<div class="mb-4">
+    <%= render "historical_price_table", coin: @coin %>
+</div>
+
+<div class="d-flex justify-content-end gap-2">
+    <%= link_to t('edit_coin'), edit_coin_path(@coin), class: "btn btn-warning" %>
+    <%= link_to t('back_to_coins'), coins_path, class: "btn btn-secondary" %>
+    <%= button_to t('destroy_coin'), @coin, method: :delete, 
+        data: { confirm: "Are you sure you want to delete this coin?" }, 
+        class: "btn btn-danger" %>
 </div>

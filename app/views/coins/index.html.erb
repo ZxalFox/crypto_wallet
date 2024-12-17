@@ -13,11 +13,11 @@
         <div class="d-flex justify-content-end">
 
             <p>
-                <%= link_to "Show this coin", coin, class: "btn btn-sm btn-warning me-3" %>
+                <%= link_to t('show_coin'), coin, class: "btn btn-sm btn-warning me-3" %>
             </p>
 
             <p>
-                <%= link_to "Add Historical Price", new_historical_price_path(coin_id: coin.id), class: "btn btn-sm bg-dark text-warning text-decoration-underline" %>
+                <%= link_to t('add_historical_price'), new_historical_price_path(coin_id: coin.id), class: "btn btn-sm bg-dark text-warning text-decoration-underline" %>
             </p>
         </div>
 
@@ -27,4 +27,6 @@
     <% end %>
 </div>
 
-<%= link_to "New coin", new_coin_path, class: "btn btn-primary" %>
+<div class="d-flex justify-content-end">
+    <%= link_to t('new_coin'), new_coin_path, class: "btn btn-warning fs-6" %>
+</div>

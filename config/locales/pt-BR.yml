@@ -6,3 +6,16 @@ pt-BR:
   production: "Produção"
   test: "Teste"
   coins: "Moedas"
+  acronym: "Sigla"
+  image: "Imagem"
+  show_coin: "Mostrar Moeda"
+  add_historical_price: "Adicionar preço ao histórico"
+  historical_prices: "Histórico de Preços"
+  date: "Data"
+  price: "Preço"
+  edit_coin: "Editar Moeda"
+  back_to_coins: "Voltar para Moedas"
+  destroy_coin: "Deletar Moeda"
+  new_coin: "Nova Moeda"
+
+

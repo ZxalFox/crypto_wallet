@@ -5,11 +5,13 @@
         </h5>
 
         <p class="card-text mb-2">
-            <strong>Acronym:</strong> <%= coin.acronym %>
+            <strong><%= t('acronym') %>: </strong> <%= coin.acronym %>
         </p>
 
         <div class="d-flex align-items-center">
-            <strong class="me-2">Image:</strong>
+            <strong class="me-2">
+                <%= t('image') %>:
+            </strong>
             <img src="<%= coin.url_image %>" alt="<%= coin.description %>" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
         </div>
     </div>
