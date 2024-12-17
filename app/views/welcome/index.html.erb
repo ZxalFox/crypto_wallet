@@ -1,16 +1,6 @@
-<h1>Seja Bem-Vindo!</h1>
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-warning"> <%=t('wellcome')%> </h1>
 
-<p>
-    <strong> <%= data_br(Date.today) %> </strong>
-</p>
-
-<%= render "menu" %>
-
-<%=t('welcome')%>
-
-<div>
-    <%= link_to "English", root_path(locale: :en) %>
-    <%= link_to "Português", root_path(locale: :'pt-BR') %>
 </div>
 
-<p>Você está em ambiente de <strong><%= ambiente_rails %></strong></p>
+<h6 class="text-center"> <%=t('wellcome_message')%> </h6>

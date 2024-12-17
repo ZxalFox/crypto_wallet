@@ -1,16 +1,16 @@
-<div id="<%= dom_id coin %>">
-    <p>
-        <strong>Description:</strong>
-        <%= coin.description %>
-    </p>
+<div id="<%= dom_id coin %>" class=" mb-3 shadow-sm">
+    <div class="bg-dark border border-warning text-light rounded-3 p-3">
+        <h5 class="card-title text-warning mb-2">
+            <strong><%= coin.description %></strong>
+        </h5>
 
-    <p>
-        <strong>Acronym:</strong>
-        <%= coin.acronym %>
-    </p>
+        <p class="card-text mb-2">
+            <strong>Acronym:</strong> <%= coin.acronym %>
+        </p>
 
-    <p>
-        <strong>Image (url):</strong>
-        <img src="<%= coin.url_image %>" width="50px" height="50px" />
-    </p>
+        <div class="d-flex align-items-center">
+            <strong class="me-2">Image:</strong>
+            <img src="<%= coin.url_image %>" alt="<%= coin.description %>" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+        </div>
+    </div>
 </div>

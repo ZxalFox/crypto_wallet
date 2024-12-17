@@ -72,7 +72,7 @@ class CoinsController < ApplicationController
       :description,
       :acronym,
       :url_image,
-      historical_prices_attributes: [:id, :date, :price, :_destroy]
+      historical_prices_attributes: %i[id date price _destroy]
     )
   end
 end

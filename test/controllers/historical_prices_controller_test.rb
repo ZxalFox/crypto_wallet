@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class HistoricalPricesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,9 @@ class HistoricalPricesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create historical_price" do
     assert_difference("HistoricalPrice.count") do
-      post historical_prices_url, params: { historical_price: { coin_id: @historical_price.coin_id, price: @historical_price.price, recorded_at: @historical_price.recorded_at } }
+      post historical_prices_url,
+           params: { historical_price: { coin_id: @historical_price.coin_id, price: @historical_price.price,
+                                         recorded_at: @historical_price.recorded_at } }
     end
 
     assert_redirected_to historical_price_url(HistoricalPrice.last)
@@ -34,7 +38,9 @@ class HistoricalPricesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update historical_price" do
-    patch historical_price_url(@historical_price), params: { historical_price: { coin_id: @historical_price.coin_id, price: @historical_price.price, recorded_at: @historical_price.recorded_at } }
+    patch historical_price_url(@historical_price),
+          params: { historical_price: { coin_id: @historical_price.coin_id, price: @historical_price.price,
+                                        recorded_at: @historical_price.recorded_at } }
     assert_redirected_to historical_price_url(@historical_price)
   end
 

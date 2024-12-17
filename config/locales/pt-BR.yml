@@ -1,2 +1,8 @@
 pt-BR:
-  welcome: "Bem-vindo à nossa aplicação"
+  wellcome: "Bem-vindo ao CryptoWallet"
+  wellcome_message: "Estamos aqui para ajudar você a gerenciar as suas criptomoedas"
+  enviroment_message: "Você está em ambiente de"
+  development: "Desenvolvimento"
+  production: "Produção"
+  test: "Teste"
+  coins: "Moedas"

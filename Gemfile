@@ -52,8 +52,8 @@ group :development, :test do
   gem "brakeman", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  gem "annotate"
   gem "rubocop-rails-omakase", require: false
-  gem 'annotate'
 end
 
 group :development do
@@ -66,3 +66,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "cssbundling-rails", "~> 1.4"
+
+gem "jsbundling-rails", "~> 1.3"

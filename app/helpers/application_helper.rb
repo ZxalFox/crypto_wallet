@@ -7,11 +7,11 @@ module ApplicationHelper # rubocop:disable Style/Documentation
 
   def ambiente_rails
     if Rails.env.development?
-      "Desenvolvimento"
+      t("development")
     elsif Rails.env.production?
-      "Produção"
+      t("production")
     else
-      "Teste"
+      t("test")
     end
   end
 end
