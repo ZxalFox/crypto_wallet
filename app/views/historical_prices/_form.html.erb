@@ -1,32 +1,33 @@
-<%= form_with(model: historical_price) do |form| %>
-  <% if historical_price.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(historical_price.errors.count, "error") %> prohibited this historical_price from being saved:</h2>
-
-      <ul>
+<%= form_with(model: historical_price, local: true, html: { class: "needs-validation" }) do |form| %>
+<% if historical_price.errors.any? %>
+<div class="alert alert-danger">
+    <h4 class="alert-heading">
+        <%= pluralize(historical_price.errors.count, "error") %> prohibited this historical price from being saved:
+    </h4>
+    <ul class="mb-0">
         <% historical_price.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div>
-    <%= form.label :coin_id, style: "display: block" %>
-    <%= form.text_field :coin_id %>
-  </div>
+<div class="mb-3">
+    <%= form.label :coin_id, "Coin ID", class: "form-label" %>
+    <%= form.text_field :coin_id, class: "form-control", placeholder: "Enter Coin ID" %>
+</div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
+<div class="mb-3">
+    <%= form.label :price, "Price", class: "form-label" %>
+    <%= form.number_field :price, class: "form-control", step: :any, placeholder: "Enter Price" %>
+</div>
 
-  <div>
-    <%= form.label :recorded_at, style: "display: block" %>
-    <%= form.datetime_field :recorded_at %>
-  </div>
+<div class="mb-3">
+    <%= form.label :recorded_at, "Recorded At", class: "form-label" %>
+    <%= form.datetime_field :recorded_at, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div class="d-grid gap-2">
+    <%= form.submit "Save Historical Price", class: "btn btn-warning" %>
+</div>
 <% end %>
