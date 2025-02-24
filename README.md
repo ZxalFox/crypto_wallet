@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### I have coded this project as an study for Ruby on Rails, if I have put everything in the right place, you should be able to manage cryptocurrencies in a very simple way
 
-Things you may want to cover:
+# Instructions to run the project
 
-* Ruby version
+1.  Install project dependecies
 
-* System dependencies
+    - To instal gems run: `bundle install`
+    - To install bootstrap run: `yarn` (you must have yarn installed in your system)
 
-* Configuration
+2.  Setup the database
 
-* Database creation
+    - I have created a task that setup the database with a few sample data
+    - Run `rails dev:setup`
 
-* Database initialization
+3.  Run the server
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    - `rails s`

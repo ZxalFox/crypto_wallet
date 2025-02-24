@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="container bg-dark text-light p-4 rounded">
+  <p class="text-success"><%= notice %></p>
 
-<%= render @historical_price %>
+  <h1 class="text-warning mb-4">Historical Price Details</h1>
 
-<div>
-  <%= link_to "Edit this historical price", edit_historical_price_path(@historical_price) %> |
-  <%= link_to "Back to historical prices", historical_prices_path %>
+  <div class="border border-white text-light p-3 rounded mb-4">
+    <%= render @historical_price %>
+  </div>
 
-  <%= button_to "Destroy this historical price", @historical_price, method: :delete %>
+  <div class="mt-4 d-flex justify-content-around">
+    <%= link_to "Edit this historical price", edit_historical_price_path(@historical_price), class: "btn btn-warning me-2" %>
+    <%= link_to "Back to historical prices", historical_prices_path, class: "btn btn-outline-warning me-2" %>
+    <%= button_to "Destroy this historical price", @historical_price, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this historical price?" } %>
+  </div>
 </div>

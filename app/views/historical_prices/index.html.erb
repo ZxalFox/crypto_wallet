@@ -1,16 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Historical prices" %>
 
-<h1>Historical prices</h1>
+<div class="container bg-dark text-light p-4 rounded">
+  <p class="text-success"><%= notice %></p>
 
-<div id="historical_prices">
-  <% @historical_prices.each do |historical_price| %>
-    <%= render historical_price %>
-    <p>
-      <%= link_to "Show this historical price", historical_price %>
-    </p>
-  <% end %>
+  <h1 class="text-warning mb-4">Historical Prices</h1>
+
+  <div id="historical_prices" class="list-group">
+    <% @historical_prices.group_by(&:coin_id).each do |coin_id, prices| %>
+      <div class="mb-4">
+        <h3 class="text-warning">Coin ID: <%= coin_id %></h3>
+        <% prices.each do |historical_price| %>
+          <div class="list-group-item bg-dark border-1 rounded-3 text-light mb-3">
+            <%= render historical_price %>
+            <%= link_to "Show this historical price", historical_price, class: "btn btn-warning btn-sm mt-2" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New historical price", new_historical_price_path, class: "btn btn-warning mt-3" %>
 </div>
-
-<%= link_to "New historical price", new_historical_price_path %>

@@ -1,6 +1,6 @@
 pt-BR:
   wellcome: "Bem-vindo ao CryptoWallet"
-  wellcome_message: "Estamos aqui para ajudar você a gerenciar as suas criptomoedas"
+  wellcome_message: "Olá, meu nome é Ayron, eu desenvolvi esse projeto como um estudo para Ruby on Rails, se eu tiver colocado tudo no lugar certo, você deve ser capaz de gerenciar criptmoedas de uma maneira bem simples"
   enviroment_message: "Você está em ambiente de"
   development: "Desenvolvimento"
   production: "Produção"
@@ -17,5 +17,3 @@ pt-BR:
   back_to_coins: "Voltar para Moedas"
   destroy_coin: "Deletar Moeda"
   new_coin: "Nova Moeda"
-
-

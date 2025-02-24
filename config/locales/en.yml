@@ -29,7 +29,7 @@
 
 en:
   wellcome: "Welcome to CryptoWallet"
-  wellcome_message: "We are here to help you manage your cryptocurrencies"
+  wellcome_message: "I have coded this project as an study for Ruby on Rails, if I have put everything in the right place, you should be able to manage cryptocurrencies in a very simple way"
   enviroment_message: "You are in"
   development: "Development"
   production: "Production"

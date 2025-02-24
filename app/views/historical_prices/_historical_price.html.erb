@@ -1,17 +1,10 @@
-<div id="<%= dom_id historical_price %>">
-  <p>
-    <strong>Coin:</strong>
-    <%= historical_price.coin_id %>
-  </p>
-
-  <p>
+<div class="historical-price">
+  <p class="mb-1">
     <strong>Price:</strong>
-    <%= historical_price.price %>
+    <span class="text-warning"><%= number_to_currency(historical_price.price, unit: "$") %></span>
   </p>
-
-  <p>
+  <p class="mb-1">
     <strong>Recorded at:</strong>
-    <%= historical_price.recorded_at %>
+    <span class="text-warning"><%= data_br(historical_price.recorded_at) %></span>
   </p>
-
 </div>
