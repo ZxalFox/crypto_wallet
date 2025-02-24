@@ -23,6 +23,11 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y yarn && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# Install Node.js (required for Yarn)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
 # Set production environment
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
